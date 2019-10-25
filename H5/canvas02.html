@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document2</title>
+    <style>
+    body{text-align:center;}
+    canvas{background:#ddd;}
+    </style>
+</head>
+<body>
+    <canvas id="c3" width="800" height="600"></canvas>
+
+    <script>
+    var c3=document.getElementById('c3');
+    var ctx=c3.getContext("2d");
+    var rows=[{name:"东口",value:2800},
+    {name:"南口",value:2700},
+    {name:"西口",value:3100},
+    {name:"地铁口",value:3500}
+    ];
+    for(var i=0;i<rows.length;i++){
+        var val=rows[i].value;
+        
+        var x=i*100+50;
+        var w=50;
+        var h=val/10;
+        var y=600-h;
+
+        ctx.fillStyle=rc();
+        ctx.globalAlpha=0.5;
+        ctx.fillRect(x,y,w,h);
+        ctx.fillStyle="#000";
+        ctx.font="25px SimHei"
+        var n=rows[i].name;
+        ctx.fillText(n,x,600-5);
+        var v=rows[i].value;
+        ctx.fillText(v,x,600-5-h);
+    }
+    //产生随机颜色
+    function rc(){var r=Math.floor(Math.random()*256);
+        var g=Math.floor(Math.random()*256);
+        var b=Math.floor(Math.random()*256);
+        return `rgb(${r},${g},${b})`;
+    }
+    </script>
+</body>
+</html>

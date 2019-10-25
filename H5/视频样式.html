@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       .box{
+           width:160px;height:160px;margin:10px 0 20px;background-color:#b3ccee;
+           overflow:hidden;border:1px solid red;resize:both;
+           }
+           .box img{width:100%;height:100%;
+               background:#cd0000;  
+           }
+    </style>
+</head>
+<body>
+    <h3>视频样式</h3>
+    <h4>fill</h4>
+    <div class="box">
+        <img src="./res/mm.png" alt="">
+    </div>
+    
+      <h5>contain包含</h5>
+      <div class="box">
+          <img src="./res/mm.png" alt="" style="object-fit: contain">
+    </div>
+    <h5>cover覆盖</h5>
+    <div class="box">
+        <img src="./res/mm.png" alt="" style="object-fit: cover">
+
+    </div>
+</body>
+</html>

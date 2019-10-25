@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      body{border:1px solid red;text-align:center;}
+      .container{position:relative;border:10px solid blue;}
+      #ctrl{
+          position:absolute;top:50%;left:50%;
+          margin-top:-60px;margin-left:-60px;
+      }
+      #ctrl img{width:120px;height:120px;}
+       #ad{
+           position:absolute;width:200px;height:100px;
+            left:50%;top:50%;margin-top:-50px;margin-left:-100px;
+      }
+    </style>
+</head>
+<body>
+    <!--自定义视频播放控件-->
+    <div class="container">
+        <video src="./res/x.mp4" id="v3">
+            </video>
+            <img src="./res/p3.png" alt="" id="ad">
+            <a href="#" id="ctrl">
+                    <img src="./res/play.png" alt="">
+                </a>
+
+    </div>
+    <div>
+     总时长：<span id="total"></span>
+     当前时间：<span id="time"></span>
+    </div>
+<script>
+       var container=document.querySelector(".container");
+       var v3=document.getElementById("v3");
+       var ctrl=document.getElementById("ctrl");
+       var img=document.querySelector("#ctrl img");
+         
+       container.onmouseenter=function(){
+           ctrl.style.display="block";
+       };
+       container.onmouseleave=function(){
+           ctrl.style.display="none";
+       };
+       ctrl.onclick=function(event){
+          event.preventDefault();
+          if(v3.paused){v3.play();
+               img.src="./res/pause.png";
+          }else{v3.pause();
+               img.src="./res/play.png";
+          }
+       }
+       var ad=document.getElementById("ad");
+       v3.onplay=function(){ad.style.display="none";}
+       v3.onpause=function(){ad.style.display="block";}
+
+       var total=document.getElementById("total");
+       var time=document.getElementById("time");
+       v3.addEventListener('canplaythrough',function(){
+           //console.log(12);
+           var t=parseInt(v3.duration)
+           total.innerHTML=t;
+       })
+       v3.addEventListener("timeupdate",function(){
+          //console.log(333);
+          var t=parseInt(v3.currentTime);
+          time.innerHTML=t;
+       })
+       addEventListener("ended",function(){
+          // console.log(222);
+           ad.style.display="block";
+       })
+</script>
+</body>
+</html>

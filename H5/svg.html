@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body{text-align:center;}
+    svg{background-color:#ccc;}
+    </style>
+</head>
+<body>
+    <svg id="s3" width="500" height="400">
+        <circle cx="250" cy="200" r="100" fill="blue" id="c3"></circle>
+
+    </svg>
+    <script>
+    var c3=document.getElementById("c3");
+    c3.onclick=function(){
+        //console.log(123);
+        var r=c3.getAttribute("r");
+        r*=1.05;
+        c3.setAttribute("r",r);
+        
+    }
+    //动态圆
+
+    var c=document.createElementNS("http://www.w3.org/2000/svg","circle");
+    c.setAttribute("r",10);
+    c.setAttribute("cx",50);
+    c.setAttribute("cy",50);
+    c.setAttribute("fill","#ff0");
+    var s3=document.getElementById("s3");
+    s3.appendChild(c);
+
+    //30个圆
+    var m=30;
+    for(var i=0;i<m;i++){
+        var cx=500*Math.random();
+        var cy=400*Math.random();
+        
+    var c=document.createElementNS("http://www.w3.org/2000/svg","circle");
+    c.setAttribute("r",5+Math.random()*15);
+    c.setAttribute("cx",cx);
+    c.setAttribute("cy",cy);
+    c.setAttribute("fill",rc());
+    c.setAttribute("fill-opacity",Math.random());
+    var s3=document.getElementById("s3");
+    s3.appendChild(c);
+    
+    c.onclick=function(){
+        console.log(123);
+        this.onclick=null;
+        var t=setInterval(
+            ()=>{
+            var r=this.getAttribute("r");
+            r*=1.05;
+            this.setAttribute("r",r);
+
+            var p=this.getAttribute("fill-opacity");
+            p*=0.9;
+            this.setAttribute("fill-opacity",p);
+            if(p<0.1){clearInterval(t);
+            s3.removeChild(this);
+            }
+        },150);        
+    }
+    }
+    function rc(){
+        var r=Math.floor(Math.random()*256);
+        var g=Math.floor(Math.random()*256);
+        var b=Math.floor(Math.random()*256);
+        return `rgb(${r},${g},${b})`;
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h4>执行耗时JS任务</h4>
+    <button>按钮一</button>
+    <!--<script src=02.js></script>-->
+    <script>
+    var w=new Worker("02.js");
+    w.onmessage=function(event){
+        var str=event.data;
+        var msg=document.getElementById("msg");
+        msg.innerHTML=str;
+    }
+    w.postMessage("枸杞来五斤");
+    </script>
+    <button>按钮二</button>
+    <div id="msg"></div>
+</body>
+</html>

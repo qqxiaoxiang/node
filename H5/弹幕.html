@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .d1{position:relative;width:856px;height:481px;}
+    #c3{ 
+        position:absolute;z-index: 0;
+        
+        width:856px;height:481px;
+        }
+    #v3{
+        position:absolute;z-index: 1;
+        
+        left:0;top:0;
+        }
+    </style>
+</head>
+<body>
+    <h3 style="text-align: center;">弹幕</h3>
+    <div class="d1">
+     <video src="./res/x.mp4" id="c3"></video>
+     <canvas id="v3" width="856" height="481"></canvas>
+
+    </div>
+    <div class="userDiv">
+        <input type="text" id="inputMsg" placeholder="想说点什么">
+        <select  id="inputFont">
+            <option value="12px">--请选择</option>
+            <option value="22px">--中号</option>
+            <option value="32px">--大号</option>
+        </select>
+        <select id="inputColor">
+            <option value="#f00">红色</option>
+            <option value="#00f">蓝色</option>
+            <option value="#000">黑色</option>
+        </select>
+        <input type="button" value="发送" id="inputBtn">
+    </div>
+    <script src="./js/msg.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>

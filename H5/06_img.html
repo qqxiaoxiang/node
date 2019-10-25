@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>img</title>
+    <style>
+    body{text-align:center;}
+    #c3{background:#ccc;}
+    </style>
+</head>
+<body>
+    <canvas id="c3" width="500" height="400"></canvas>
+<script>
+    var c3=document.getElementById("c3");
+    var ctx=c3.getContext("2d");
+    var p3=new Image();
+    p3.src="./res/p3.png";
+    p3.onload=function(){
+        var w=p3.width;
+        
+        var xDirection=1;
+        var x=0;
+       
+    setInterval(function(){
+          x+=10*xDirection;
+          ctx.clearRect(0,0,500,400);
+          ctx.drawImage(p3,x,0);
+          if(x>500-w){xDirection=-1;}else if(x<0){
+               xDirection=1;
+          }
+          
+    },50)
+        
+        
+        }
+
+</script>

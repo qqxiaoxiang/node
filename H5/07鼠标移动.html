@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>sub</title>
+    <style>
+    body{text-align:center;}
+    #c3{background:#ccc;}
+    </style>
+</head>
+<body>
+    <canvas id="c3" width="500" height="400"></canvas>
+<script>
+    var c3=document.getElementById("c3");
+    var ctx=c3.getContext("2d");
+    // var p3=new Image();
+    // p3.src="./res/p3.png";
+   
+    // p3.onload=function(){
+    //     var w=p3.width;
+    //     var h=p3.height;
+    //     c3.onmousemove=function(event){
+    //         var x=event.offsetX,y=event.offsetY;
+    //      ctx.clearRect(0,0,500,400);
+    //      if(x>500-w/2){x=500-w/2};
+    //      if(y>400-h/2){y=400-h/2};
+    //      if(x<w/2){x=w/2};
+    //      if(y<h/2){y=h/2};
+         
+    //       ctx.drawImage(p3,x-w/2,y-h/2);
+          
+    //       }};
+          
+    //旋转
+    // var p3=new Image();
+    // p3.src="./res/p3.png";
+    // p3.onload=function(){
+    //     var w=p3.width;
+    //     var h=p3.height;
+    //     ctx.drawImage(p3,0,0);
+    //     ctx.rotate(15*Math.PI/180)
+    //     ctx.drawImage(p3,0,0);
+    //     ctx.rotate(15*Math.PI/180);
+    //     ctx.drawImage(p3,0,0);
+
+    //     var t=setInterval(()=>{
+    //         ctx.clearRect(0,0,500,400);
+    //         ctx.rotate(15*Math.PI/180);
+    //         ctx.drawImage(p3,0-w/2,0-h/2);
+    //     },100)
+    // }
+
+   // 多个飞机旋转
+
+
+   var p3=new Image();
+    p3.src="./res/p3.png";
+    p3.onload=function(){
+        var w=p3.width;
+        var h=p3.height;
+       
+        var t=setInterval(()=>{
+            ctx.clearRect(0,0,500,400);
+            ctx.rotate(15*Math.PI/180);
+            ctx.drawImage(p3,0-w/2,0-h/2);
+        },100)
+    }
+        
+        
+      
+
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{text-align:center;}
+    #c3{background:#ccc;}
+    </style>
+</head>
+<body>
+    <canvas id="c3" width="500" height="400"></canvas>
+    <script>
+    var c3=document.getElementById("c3");
+    var ctx=c3.getContext("2d");
+    var str="然哥的帽子";
+    ctx.fillStyle="red";
+    ctx.textBaseline="top";
+    ctx.font="19px SimHei"
+    ctx.fillText(str,0,0);
+
+    var str1="亮哥头发";
+    ctx.fillStyle="blue";
+    ctx.font="29px SimHei"
+    var obj=ctx.measureText(str1);
+    ctx.fillText(str1,500-obj.width,300);
+
+            var str="严师傅";
+        ctx.fillStyle="pink";
+        var obj=ctx.measureText(str);
+        ctx.fillText(str,500-obj.width,0);
+
+         ctx.fillStyle="green";
+         ctx.fillText(str,0,400-25);
+
+         ctx.fillStyle="#fc0";
+         ctx.fillText(str,500-obj.width,400-25);
+    
+    </script>
+</body>
+</html>
